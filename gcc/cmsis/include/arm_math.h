@@ -451,14 +451,14 @@ extern "C"
 
 #define __PACKq7(v0,v1,v2,v3) ( (((int32_t)(v0) <<  0) & (int32_t)0x000000FF) |	\
                                 (((int32_t)(v1) <<  8) & (int32_t)0x0000FF00) |	\
-							    (((int32_t)(v2) << 16) & (int32_t)0x00FF0000) |	\
-							    (((int32_t)(v3) << 24) & (int32_t)0xFF000000)  )
+                                (((int32_t)(v2) << 16) & (int32_t)0x00FF0000) |	\
+                                (((int32_t)(v3) << 24) & (int32_t)0xFF000000)  )
 #else
 
 #define __PACKq7(v0,v1,v2,v3) ( (((int32_t)(v3) <<  0) & (int32_t)0x000000FF) |	\
                                 (((int32_t)(v2) <<  8) & (int32_t)0x0000FF00) |	\
-							    (((int32_t)(v1) << 16) & (int32_t)0x00FF0000) |	\
-							    (((int32_t)(v0) << 24) & (int32_t)0xFF000000)  )
+                                (((int32_t)(v1) << 16) & (int32_t)0x00FF0000) |	\
+                                (((int32_t)(v0) << 24) & (int32_t)0xFF000000)  )
 
 #endif
 
@@ -2355,12 +2355,12 @@ typedef struct
   {
     arm_cfft_instance_f32 Sint;      /**< Internal CFFT structure. */
     uint16_t fftLenRFFT;                        /**< length of the real sequence */
-	float32_t * pTwiddleRFFT;					/**< Twiddle factors real stage  */
+    float32_t * pTwiddleRFFT;					/**< Twiddle factors real stage  */
   } arm_rfft_fast_instance_f32 ;
 
 arm_status arm_rfft_fast_init_f32 (
-	arm_rfft_fast_instance_f32 * S,
-	uint16_t fftLen);
+    arm_rfft_fast_instance_f32 * S,
+    uint16_t fftLen);
 
 void arm_rfft_fast_f32(
   arm_rfft_fast_instance_f32 * S,
@@ -3126,11 +3126,11 @@ void arm_rfft_fast_f32(
    */
 
   void arm_conv_fast_q15(
-			  q15_t * pSrcA,
-			 uint32_t srcALen,
-			  q15_t * pSrcB,
-			 uint32_t srcBLen,
-			 q15_t * pDst);
+              q15_t * pSrcA,
+             uint32_t srcALen,
+              q15_t * pSrcB,
+             uint32_t srcBLen,
+             q15_t * pDst);
 
   /**
    * @brief Convolution of Q15 sequences (fast version) for Cortex-M3 and Cortex-M4
@@ -3312,13 +3312,13 @@ void arm_rfft_fast_f32(
    */
 
   arm_status arm_conv_partial_fast_q15(
-				        q15_t * pSrcA,
-				       uint32_t srcALen,
-				        q15_t * pSrcB,
-				       uint32_t srcBLen,
-				       q15_t * pDst,
-				       uint32_t firstIndex,
-				       uint32_t numPoints);
+                        q15_t * pSrcA,
+                       uint32_t srcALen,
+                        q15_t * pSrcB,
+                       uint32_t srcBLen,
+                       q15_t * pDst,
+                       uint32_t firstIndex,
+                       uint32_t numPoints);
 
 
   /**
@@ -4598,11 +4598,11 @@ void arm_rfft_fast_f32(
    */
 
   void arm_correlate_fast_q15(
-			       q15_t * pSrcA,
-			      uint32_t srcALen,
-			       q15_t * pSrcB,
-			      uint32_t srcBLen,
-			      q15_t * pDst);
+                   q15_t * pSrcA,
+                  uint32_t srcALen,
+                   q15_t * pSrcB,
+                  uint32_t srcBLen,
+                  q15_t * pDst);
 
 
 
