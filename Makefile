@@ -4,6 +4,8 @@ build:
 	$(MAKE) --directory=./gcc
 burn:
 	$(MAKE) --directory=./gcc burn
+debug:
+	$(MAKE) --directory=./gcc debug
 test:
 	$(MAKE) --directory=./tests test
 clean:

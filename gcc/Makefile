@@ -97,13 +97,6 @@ $(DEPDIR)/%.d: ;
 
 burn: $(BIN_DIR)/$(OUTPUT_EXEC)
 	openocd -f board/atmel_same70_xplained.cfg -c"init" -c"sleep 300"  -c"program erase $<" -c"sleep 300" -c"reset" -c"shutdown"
-debug: $(BIN_DIR)/$(OUTPUT_EXEC)
-	openocd -f board/atmel_same70_xplained.cfg >/dev/null &
-	sleep 1 ;
-	! echo "reset" | telnet localhost 4444 ;
-	! echo "reset halt" | telnet localhost 4444 ;
-	sleep 1 ;
-	arm-none-eabi-gdb --tui --eval-command="target remote localhost:3333" $<;
-	! echo "reset" | telnet localhost 4444 ;
-	sleep 1 ;
-	! echo "shutdown" | telnet localhost 4444 ;
+debug: $(BIN_DIR)/$(OUTPUT_EXEC) burn
+	openocd -f board/atmel_same70_xplained.cfg &
+	gdbgui --gdb arm-none-eabi-gdb -x .gdb_init "$<"

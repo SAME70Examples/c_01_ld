@@ -1,0 +1,8 @@
+target remote localhost:3333
+monitor reset halt
+step 0
+
+def tomain
+    break main
+    continue
+    clear main
